@@ -1,0 +1,8 @@
+/* 메인 컨테이너 */
+.main-box {
+    margin: 50px auto;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    width: 500px;
+    height: 500px;
+}
