@@ -9,6 +9,7 @@ function App02_2() {
 
 
     return <div>
+        <TitleBox />
             <InputBox name={name} setName={setName} age={age} setAge={setAge} />
             <ButtonBox setDisplayName={setDisplayName} setDisplayAge={setDisplayAge} name={name} age={age} />
             <DisplayBox displatName={displatName} displatAge={displatAge} />
@@ -17,7 +18,11 @@ function App02_2() {
 
 export default App02_2;
 
-
+function TitleBox() {
+    return <div>
+        <div className="title-box">정보 입력</div>
+    </div>
+}
 
 function InputBox({name, setName, age, setAge}) {
     
