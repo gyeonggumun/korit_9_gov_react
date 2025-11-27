@@ -1,13 +1,15 @@
 import { createRoot } from "react-dom/client";
 import App01 from "./ch01/App01";
 import App02 from "./ch02/App02";
+import Counter from "./ch02/Counter";
 
 const appObj = {
   //컴포넌트 렌더링
     ch01: <App01 />, 
-    ch01: <App02 />, 
+    ch02: <App02 />, 
+    counter: <Counter/>
+}
 
-};
-const root = document.getElementById("root"); //id 가 root 인 요소 dom 으로 가져옴 -> root 객체 생성
-createRoot(root).render(appObj.ch02);
+// render()안에 있는 항목을 렌더링시킴
+createRoot(document.getElementById('root')).render(appObj.counter);
 

@@ -6,3 +6,46 @@
     width: 500px;
     height: 500px;
 }
+/* 제목 컨테이너 */
+.title-box {
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    width: 400px;
+    text-align: center; /* 글자 가운데 정렬 */
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    width: 400px;
+}
+/* 버튼 컨테이너 */
+.button-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    width: 400px;
+}
+
+.display-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    width: 400px;
+}
