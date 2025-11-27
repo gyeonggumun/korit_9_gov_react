@@ -6,14 +6,13 @@ function JSXStudy() {
   const 닫아야함2 = <div></div>;
 
   //요소2개 -> 무조건 감싸야함
-  const 감싸야함 = (
+  const 감싸야함 = 
     <div>
       <input type="text" />
       <input type="text" />
     </div>
-  );
   //<Fragment> 로 감싸라 -> 빈 태그 <> 로 감싸라는 의미
-  const 감싸야함2 = (
+  const 감싸야함2 =
     <Fragment>
       <div>
         <input type="text" />
@@ -24,8 +23,20 @@ function JSXStudy() {
         <input type="text" />
       </div>
     </Fragment>
-  );
-  const a = (
+
+    const 감싸야함3 =
+        <>
+            <div>
+                <input type="text" />
+                <input type="text" />
+            </div>
+            <div>
+                <input type="text" />
+                <input type="text" />
+            </div>
+        </>
+    
+  const a = 
     <div>
       <div>
         <Hello />
@@ -36,7 +47,7 @@ function JSXStudy() {
         <Hello />
       </div>
     </div>
-  );
+  
 
   //{} 안엔 값, 변수, 연산식만 넣을 수 있음
   const num = 10;

@@ -1,14 +1,12 @@
 import { createRoot } from "react-dom/client";
-import Hello from "./Hello";
-import { Fragment } from "react";
 import App01 from "./ch01/App01";
 
-const currentApp = "ch01_2";
+const currentApp = "ch01_3";
 
 const appObj = {
   ch01: <App01 />, //컴포넌트 렌더링
   ch01_1: <h1>ch01_1 렌더링</h1>,
-  // ch01_2: BoxComponent(),     //이건 그냥 함수호출
+  ch01_2: BoxComponent(),     //이건 그냥 함수호출
   ch01_3: <BoxComponent />,
   ch01_4: <BoxComponent></BoxComponent>,
   // "ch02": <App02 />,
@@ -18,14 +16,10 @@ const root = document.getElementById("root"); //id 가 root 인 요소 dom 으�
 createRoot(root).render(appObj[currentApp]);
 
 function BoxComponent() {
-  return (
-    <div>
-      <TitleComponent title="타이틀" title2="타이틀2"/>
-    </div>
+  return <div><TitleComponent title="타이틀" title2="타이틀2"/></div>
     // return <div>{TitleComponent()}</div>
     // return <div><TitleComponent title="타이틀" title2="타이틀2" /></div>
     // return <div>{TitleComponent({title: "타이틀", title2: "타이틀2"})}</div> //-> 그냥 함수호출?
-  );
 }
 
 // function TitleComponent(a) {
