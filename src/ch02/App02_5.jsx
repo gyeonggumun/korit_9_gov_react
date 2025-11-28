@@ -29,8 +29,8 @@ function App02_5() {
 
     return <div>
         <div>
-            <input type="text" value={name} onChange={handleNameOnChange} />
-            <input type="text" value={content} onChange={handleContentOnChange}/>
+            <input type="text" value={name} onChange={handleNameOnChange} placeholder="이름" />
+            <input type="text" value={content} onChange={handleContentOnChange} placeholder="내용" />
             <button onClick={handleOnClick}> 확인</button>
         </div>
         <ul>{todos.map(todo => <li>작성자: {todo.name} 내용: {todo.content} 작성일: {todo.writeDate}</li>)}</ul>

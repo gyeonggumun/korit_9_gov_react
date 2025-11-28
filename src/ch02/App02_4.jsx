@@ -10,35 +10,38 @@ function App02_4() {
 }
 
 function TodoInput({todos, setTodos}) {
-    const [value, setValue] = useState("");
-    const [nameValue, setNameValue] = useState("");
-
-    const handleNameOnChange = (e) => {
-        setNameValue(e.target.value);
-    }
+    const [value, setValue] = useState({
+        writer: "",
+        content: "",
+    });
 
     const handleOnChange = (e) => {
-        setValue(e.target.value);
+        const {name, value:inputValue} = e.target;
+        setValue({
+            ...value,
+            [name]: inputValue,
+        });
     }
 
     const handleOnClick = () => {
         
         const todo = {
-            name: nameValue,
-            contents: value,
+            ...value,
             writeDate: new Date().toLocaleString(),
         }
         setTodos([...todos, todo]);
-        setNameValue("");
-        setValue("");
+        setValue({
+            writer: "",
+            content: "",
+        });
         
 
     }
 
 
     return <div>
-        <input type="text" value={nameValue} onChange={handleNameOnChange}/>
-        <input type="text" value={value} onChange={handleOnChange}/>
+        <input type="text" name="writer" value={value.writer} onChange={handleOnChange} placeholder="이름"/>
+        <input type="text" name="content" value={value.content} onChange={handleOnChange} placeholder="내용"/>
         <button onClick={handleOnClick}>입력</button>
     </div>
 }

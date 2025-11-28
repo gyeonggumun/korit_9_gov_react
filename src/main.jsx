@@ -19,5 +19,5 @@ const appObj = {
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.ch02_5);
+createRoot(document.getElementById('root')).render(appObj.ch02_4);
 
