@@ -7,7 +7,6 @@ function App02_3() {
     return <>
         <TodoInput todos={todos} setTodos={setTodos} />
         <TodoList todos={todos}/>
-
     </>
 }
 
@@ -18,19 +17,22 @@ function TodoInput({ todos, setTodos }) {
 
     // input 내용 value 상태에 저장
     const handleOnChange = (e) => {
-        setValue(e.terget.value);
+        setValue(e.target.value);
     }
     
     // 등록 버튼 누르면 이 함수 동작
     const handleOnClick = () => {
+
         // todo 배열에 추가할 todo 객체 생성
         const todo = {
-            content:"",
+            content: value,
             writeDate: new Date().toLocaleString(),
         }
+        
         setTodos([...todos, todo]);  //todo 배열에 추가
         // 새로운 배열을 만들어서 기존의 todos에 들어있던 요소들 
         // 스프레드로 다 복사하고 마지막에 새로만든 todo 객체 추가
+
         setValue("");  // input 내용 초기화
     }
 
