@@ -7,6 +7,7 @@ import App02_3 from "./ch02/App02_3";
 import App02_4 from "./ch02/App02_4";
 import App02_5 from "./ch02/App02_5";
 import Inputs from "./ch02/Inputs";
+import SearchName from "./ch02/SearchName";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -18,8 +19,9 @@ const appObj = {
     ch02_4: <App02_4 />,
     ch02_5: <App02_5 />,
     inputs: <Inputs />,
+    searchName: <SearchName />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.inputs);
+createRoot(document.getElementById('root')).render(appObj.searchName);
 
