@@ -15,6 +15,13 @@ function Axios01() {
    })
     }
 
+    useEffect(() =>{
+        axios.get("http://192.168.2.101:8080/users")
+        .then(response => {
+            console.log(response.data);
+            setUsers(response.data);
+        });
+    },[]);
    
    
    
