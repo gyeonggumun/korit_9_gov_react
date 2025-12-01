@@ -37,5 +37,5 @@ const appObj = {
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.axios02);
+createRoot(document.getElementById('root')).render(appObj.axios01);
 
