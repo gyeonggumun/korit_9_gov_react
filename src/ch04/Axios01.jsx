@@ -4,11 +4,18 @@ import "./style.css";
 
 function Axios01() {
    const [users, setUsers] = useState([]);
-   
-   axios.get("http://192.168.2.101:8080/users")
-   .then(response => {
-        setUsers(response.data);
+   const [refetch, setRefetch] = useState(true);
+
+    if(refetch) {
+        axios.get("http://192.168.2.101:8080/users")
+        .then(response => {
+            console.log(response.data);
+            setUsers(response.data);
+            setRefetch(false);
    })
+    }
+
+   
    
    
    return <>
