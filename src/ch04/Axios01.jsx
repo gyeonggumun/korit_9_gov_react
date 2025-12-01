@@ -6,22 +6,28 @@ function Axios01() {
    const [users, setUsers] = useState([]);
    const [refetch, setRefetch] = useState(true);
 
+    // then이 useEffect보다 먼저 실행
+    // 그렇기 때문에 요청이 많아지면 useEffect에 넣어 순서를 정해주는 것이 좋음
+    console.log("콘솔!!");
     if(refetch) {
         axios.get("http://192.168.2.101:8080/users")
-        .then(response => {
+        .then(response => {  
             console.log(response.data);
             setUsers(response.data);
             setRefetch(false);
-   })
+        });
     }
 
-    useEffect(() =>{
-        axios.get("http://192.168.2.101:8080/users")
-        .then(response => {
-            console.log(response.data);
-            setUsers(response.data);
-        });
-    },[]);
+    // useEffect(() =>{
+    //     if(refetch) {
+    //         axios.get("http://192.168.2.101:8080/users")
+    //         .then(response => {
+    //             console.log(response.data);
+    //             setUsers(response.data);
+    //             setRefetch(false);
+    //         });
+    //     }
+    // },[]);
    
    
    
