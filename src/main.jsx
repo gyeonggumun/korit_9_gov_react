@@ -11,6 +11,7 @@ import SearchName from "./ch02/SearchName";
 import SearchNamev2 from "./ch02/SearchNamev2";
 import UseEffect01 from "./ch03/UseEffect01";
 import UseEffect03 from "./ch03/UseEffect03";
+import UseEffect04 from "./ch03/UseEffect04";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -26,8 +27,9 @@ const appObj = {
     searchNamev2: <SearchNamev2 />,
     useEffect01: <UseEffect01 />,
     useEffect03: <UseEffect03 />,
+    useEffect04: <UseEffect04 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.useEffect03);
+createRoot(document.getElementById('root')).render(appObj.useEffect04);
 
