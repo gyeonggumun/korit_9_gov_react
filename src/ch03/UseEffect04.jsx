@@ -28,7 +28,6 @@ function UseEffect04() {
 
     const handleMinOnClick = () => {
         if (num === 0) {
-            alert("0 밑으로 숫자를 내릴 수 없습니다.");
             return 0;
         } 
         setNum(num - 1);
