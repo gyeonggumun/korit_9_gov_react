@@ -15,6 +15,7 @@ import UseEffect04 from "./ch03/UseEffect04";
 import Axios01 from "./ch04/Axios01";
 import Promise01 from "./ch04/Promise01";
 import Axios02 from "./ch04/Axios02";
+import Test01 from "./ch04/Test01";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -34,6 +35,7 @@ const appObj = {
     axios01: <Axios01 />,
     axios02: <Axios02 />,
     promise01: <Promise01 />,
+    test01: <Test01 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
