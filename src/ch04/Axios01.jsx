@@ -8,15 +8,18 @@ function Axios01() {
 
     // then이 useEffect보다 먼저 실행
     // 그렇기 때문에 요청이 많아지면 useEffect에 넣어 순서를 정해주는 것이 좋음
-    console.log("콘솔!!");
-    if(refetch) {
-        axios.get("http://192.168.2.101:8080/users")
-        .then(response => {  
+    getUsersApi();
+
+    const getUsersApi = async () => {
+        console.log("콘솔!!");
+        if(refetch) {
+            const response = await axios.get("http://192.168.2.101:8080/users");
             console.log(response.data);
             setUsers(response.data);
             setRefetch(false);
-        });
+        }
     }
+    
 
     // useEffect(() =>{
     //     if(refetch) {

@@ -13,6 +13,7 @@ import UseEffect01 from "./ch03/UseEffect01";
 import UseEffect03 from "./ch03/UseEffect03";
 import UseEffect04 from "./ch03/UseEffect04";
 import Axios01 from "./ch04/Axios01";
+import Promise01 from "./ch04/Promise01";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -30,8 +31,9 @@ const appObj = {
     useEffect03: <UseEffect03 />,
     useEffect04: <UseEffect04 />,
     axios01: <Axios01 />,
+    promise01: <Promise01 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.axios01);
+createRoot(document.getElementById('root')).render(appObj.promise01);
 
