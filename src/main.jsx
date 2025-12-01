@@ -12,6 +12,7 @@ import SearchNamev2 from "./ch02/SearchNamev2";
 import UseEffect01 from "./ch03/UseEffect01";
 import UseEffect03 from "./ch03/UseEffect03";
 import UseEffect04 from "./ch03/UseEffect04";
+import Axios01 from "./ch04/Axios01";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -28,8 +29,9 @@ const appObj = {
     useEffect01: <UseEffect01 />,
     useEffect03: <UseEffect03 />,
     useEffect04: <UseEffect04 />,
+    axios01: <Axios01 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.useEffect04);
+createRoot(document.getElementById('root')).render(appObj.axios01);
 
