@@ -2,8 +2,16 @@ import axios from "axios"
 import { useRef, useState } from "react";
 
 function Axios03() {
-    const registerUsernameInputRef = useRef();  // focus이동을 유연하게하기위해 useRef생성
-    const registerPasswordInputRef = useRef();  
+    // 리액트는 가상돔을 이용하여 수정해야하기 때문에 직접 간섭하여 수정하지않고 ref를 이용하여 수정해주어야함
+    // useRef를 여러개 생성해야 하기 때문에 객체로 생성
+    const registerInputRef = { // focus이동을 유연하게하기위해 useRef생성
+        username: useRef(),
+        password: useRef(),
+        name: useRef(),
+        email: useRef(),
+        role1: useRef(),
+        role2: useRef(),
+    }
     // 엔터를 눌러 다음 input창으로 넘어가도록 설계하기위해 여러 input의 순서대로 넘어가게하기위해 배열을 사용
     // 순서나 묶음을 나타내면 배열을 떠올릴 것
     const [registerInputValue, setRegisterInputValue] = useState({
@@ -12,7 +20,7 @@ function Axios03() {
         name: "",
         email: "",
         role1: "",
-        role2: "", 
+        role2: "",
     });
     const [inputValue, setInputValue] = useState({
         username: "",
@@ -37,14 +45,20 @@ function Axios03() {
         })
     }
 
-    const handleRegisterInputOnKeyDown = (e) => {
+    const handleRegisterInputNextFocusOnKeyDown = (e, nextRef) => {
         if (e.key === 'Enter') {
             // e.target.nextSibling.focus(); // 엔터 눌렀을 대 다음 input으로 이동
-            console.log(registerUsernameInputRef);
-            console.log(registerPasswordInputRef);
-            registerPasswordInputRef.current.focus();
+            nextRef.current.focus();
+            if(!nextRef) {
+                
+            }
         }
     }
+
+    const handleRegisterInputSubmitOnKeyDown = (e) => {
+       
+    }
+
 
     const handleInputOnChange = (e) => {
         const {name, value} = e.target; 
@@ -66,12 +80,59 @@ function Axios03() {
 
     return <>
         <div>
-            <input type="text" ref={registerUsernameInputRef} placeholder="username" name="username" value={registerInputValue.username} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown} onFocus={(e) => {console.log(e)}}/>
-            <input type="text" ref={registerPasswordInputRef} placeholder="password" name="password" value={registerInputValue.password} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown} />
-            <input type="text" placeholder="name" name="name" value={registerInputValue.name} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown} />
-            <input type="text" placeholder="email" name="email" value={registerInputValue.email} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown} />
-            <input type="text" placeholder="role1" name="role1" value={registerInputValue.role1} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown}/>
-            <input type="text" placeholder="role2" name="role2" value={registerInputValue.role2} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputOnKeyDown}/>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.username} 
+                    placeholder="username" 
+                    name="username" 
+                    value={registerInputValue.username}
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.password)} />
+            </div>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.password} 
+                    placeholder="password" 
+                    name="password" 
+                    value={registerInputValue.password} 
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.name)} />
+            </div>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.name} 
+                    placeholder="name" name="name" 
+                    value={registerInputValue.name} 
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.email)} />
+            </div>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.email} 
+                    placeholder="email" 
+                    name="email" 
+                    value={registerInputValue.email} 
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.role1)} />
+            </div>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.role1} 
+                    placeholder="role1" 
+                    name="role1" 
+                    value={registerInputValue.role1} 
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.role2)}/>
+            </div>
+            <div>
+                <input type="text" 
+                    ref={registerInputRef.role2} 
+                    placeholder="role2" 
+                    name="role2" 
+                    value={registerInputValue.role2} 
+                    onChange={handleRegisterInputOnChange} 
+                    onKeyDown={(e) => {handleRegisterInputNextFocusOnKeyDown(e); handleRegisterInputSubmitOnKeyDown(e);}}/>
+            </div>
             <button >등록</button>
         </div>
         <input type="text" 
