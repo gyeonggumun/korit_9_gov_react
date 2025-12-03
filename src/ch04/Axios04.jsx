@@ -126,6 +126,19 @@ function Axios04() {
         inputElement.click();
     }
     
+    const reqPutOnClick = () => {
+        api.put("/req/data1/30", {
+            name: "김준이",
+            age: 33,
+        });
+    }
+
+    const reqPatchOnClick = () => {
+        api.patch("/req/data1/30", {
+            name: "김준이",
+        });
+    }
+
     
     return <>
         <button onClick={reqGetOnClick1}>reqGet1</button>
@@ -137,7 +150,8 @@ function Axios04() {
         <button onClick={reqPostOnClick3}>reqPost3</button>
         <button onClick={reqPostOnClick4}>reqPost4</button>
         <button onClick={reqPostOnClick5}>reqPost5</button>
-        <button>10</button>
+        <button onClick={reqPutOnClick}>reqPut</button>
+        <button onClick={reqPatchOnClick}>reqPatch</button>
         
     </>
 }
