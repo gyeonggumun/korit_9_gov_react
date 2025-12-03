@@ -139,6 +139,15 @@ function Axios04() {
         });
     }
 
+    // 일반적으로 delete는 정보를 하나만 보냄
+    const reqDeleteOnClick = () => {
+        api.delete("/req/data1/20", {
+            data: {
+                name: "문경구",
+            }
+        });
+    }
+
     
     return <>
         <button onClick={reqGetOnClick1}>reqGet1</button>
@@ -152,6 +161,7 @@ function Axios04() {
         <button onClick={reqPostOnClick5}>reqPost5</button>
         <button onClick={reqPutOnClick}>reqPut</button>
         <button onClick={reqPatchOnClick}>reqPatch</button>
+        <button onClick={reqDeleteOnClick}>reqDelete</button>
         
     </>
 }
