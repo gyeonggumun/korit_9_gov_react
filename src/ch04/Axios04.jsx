@@ -140,6 +140,7 @@ function Axios04() {
     }
 
     // 일반적으로 delete는 정보를 하나만 보냄
+    // 데이터를 보낼 때 JSON형식으로 보내야함 
     const reqDeleteOnClick = () => {
         api.delete("/req/data1/20", {
             data: {
