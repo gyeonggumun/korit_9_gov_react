@@ -1,19 +1,17 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Auth01() {
+function Auth02() {
     const [ inputValue, setInputValue ] = useState({
         username: "",
         password: "",
-        name: "",
-        email: "",
     });
-    const [ inputMessage, setInputMessage ] = useState({
+    const [inputMessage, setInputMessage] = useState({
         username: "",
         password: "",
-        name: "",
-        email: "",
     });
+
+    const [ signinButtonDisabled, setSigninButtonDisabled ] = useState(true);
 
     const regexs = {
         username: {
@@ -24,15 +22,13 @@ function Auth01() {
             regex: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[A-Za-z0-9^A-Za-z0-9\W]{8,16}$/,
             message:"비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요."
         },
-        name: {
-            regex: /^[가-힣]{2,6}$/,
-            message:"이름: 2~6자의 한글을 사용해주세요."
-        },
-        email: {
-            regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
-            message:"이메일 형식을 사용해주세요."
-        },
     }
+    
+    useEffect(() => {
+        const isBlank = Object.values(inputValue).includes("");
+        const isNotValid = Object.values(inputMessage).map(message => !!message).includes(true);
+        setSigninButtonDisabled(isBlank || isNotValid);
+    }, [inputValue]);
 
     const handleInputOnChange = (e) => {
         setInputValue({
@@ -49,24 +45,20 @@ function Auth01() {
                 ...inputMessage,
                 [e.target.name]: regexs[e.target.name].message,
             });
-        }
+        }   
     }
 
-    const handleSignupOnClick = () => {
-        if (Object.values(inputMessage).map(message => !!message).includes(true)) {
-            alert("입력하신 가입정보를 다시 확인하세요.");
-            return;
-        }
-        signupRequest();
+    const handleSigninOnClick = () => {
+        siginRequest();
     }
 
-    const signupRequest = async () => {
+    const siginRequest = async () => {
         try {
-            const response = await axios.post("http://localhost:8080/api/auth/signup", inputValue);
-            console.log(response);
-            alert("회원가입 완료.");
+            const response = await axios.post("http://localhost:8080/api/auth/signin", inputValue);
+            const {accessToken} = response.data;
+            localStorage.setItem("AccessToken", accessToken);
         } catch (error) {
-            console.log(error);
+            console.log(error.response.data.message);
         }
     }
 
@@ -81,17 +73,9 @@ function Auth01() {
                 <input type="text" placeholder="비밀번호" name="password" value={inputValue.password} onChange={handleInputOnChange}  />
                 <span>{inputMessage.password}</span>
             </div>
-            <div>
-                <input type="text" placeholder="이름" name="name" value={inputValue.name} onChange={handleInputOnChange}  />
-                <span>{inputMessage.name}</span>
-            </div>
-            <div>
-                <input type="text" placeholder="이메일" name="email" value={inputValue.email} onChange={handleInputOnChange}  />
-                <span>{inputMessage.email}</span>
-            </div>
-            <button onClick={handleSignupOnClick}>가입하기</button>
+            <button disabled={signinButtonDisabled} onClick={handleSigninOnClick}>로그인</button>
         </div>
     </>
 }
 
-export default Auth01;
+export default Auth02;
