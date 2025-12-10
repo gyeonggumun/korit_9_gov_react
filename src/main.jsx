@@ -26,6 +26,7 @@ import Router02 from "./ch06/Router02";
 import Router03 from "./ch06/Router03";
 import Router04 from "./ch06/Router04";
 import Router05 from "./ch06/Router05";
+import Css from "./ch07/Css";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -56,8 +57,9 @@ const appObj = {
     router03: <Router03 />,
     router04: <Router04 />,
     router05: <Router05 />,
+    css: <Css />
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.router05);
+createRoot(document.getElementById('root')).render(appObj.css);
 
