@@ -29,8 +29,9 @@ function Page1() {
 function Page2() {
     const { name, age } = useParams();
 
-    const location = useLocation();
-    console.log(location);
+    // const location = useLocation();
+    // console.log(location);
+    const { pathname } = useLocation();
 
     return <div>
         <h3>이름: {name}</h3>
