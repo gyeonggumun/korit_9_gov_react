@@ -57,8 +57,22 @@ function Auth02() {
             const response = await axios.post("http://localhost:8080/api/auth/signin", inputValue);
             const {accessToken} = response.data;
             localStorage.setItem("AccessToken", accessToken);
+            await getPrincipalRequest();
         } catch (error) {
             console.log(error.response.data.message);
+        }
+    }
+
+    const getPrincipalRequest = async () => {
+        try {
+            const response = await axios.get("http://localhost:8080/api/auth/principal" , {
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("AccessToken")}`,
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
         }
     }
 
