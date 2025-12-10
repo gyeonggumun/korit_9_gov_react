@@ -53,7 +53,11 @@ function Auth01() {
     }
 
     const handleSignupOnClick = () => {
-        
+        if (Object.values(inputMessage).map(message => !!message).includes(true)) {
+            alert("입력하신 가입정보를 다시 확인하세요.");
+            return;
+        }
+        signupRequest();
     }
 
     const signupRequest = async () => {
