@@ -19,6 +19,7 @@ import Test01 from "./ch04/Test01";
 import Axios03 from "./ch04/Axios03";
 import Axios04 from "./ch04/Axios04";
 import Axios05 from "./ch04/Axios05";
+import Auth01 from "./ch05/Auth01";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -42,8 +43,9 @@ const appObj = {
     axios05: <Axios05 />,
     promise01: <Promise01 />,
     test01: <Test01 />,
+    auth01: <Auth01 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.axios05);
+createRoot(document.getElementById('root')).render(appObj.auth01);
 
