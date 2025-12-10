@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useLocation, useParams } from "react-router-dom";
 
 // params - useParams()
 function Router05() {
@@ -28,6 +28,9 @@ function Page1() {
 
 function Page2() {
     const { name, age } = useParams();
+
+    const location = useLocation();
+    console.log(location);
 
     return <div>
         <h3>이름: {name}</h3>
