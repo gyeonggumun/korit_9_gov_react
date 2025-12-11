@@ -42,8 +42,8 @@ const container = css`
     box-sizing: border-box;
     border: 1px solid #222;
     padding: 20px;
-    width: 500px;
-    height: 650px;
+    width: 1000px;
+    height: 1000px;
 `;
 
 const buttonController = css`
@@ -82,10 +82,10 @@ const boxContainer = css`
 `;
 const movingBox = (position) => css`
     position: absolute;
-    top: calc(${position.top}% - ${position.top}px);
-    left: calc(${position.left}% - ${position.left}px);
-    width: 200px;
-    height: 200px;
+    top: calc(${position.top}% - ${position.top * 1.5}px);
+    left: calc(${position.left}% - ${position.left * 1.5}px);
+    width: 150px;
+    height: 150px;
     background-color: blue;
     transition: all 1s ease-in-out;
 `;
@@ -99,7 +99,7 @@ function Css02() {
     })
 
     const handleMoveOnClick = () => {
-        setLeft(left === 0 ? 700 : 0);
+        setLeft(left === 0 ? 1200 : 0);
     }
 
     const handleMoveButtonOnClick = (e) => {
