@@ -13,6 +13,7 @@ export const useUserInfo = create((set) => ({
         phone: "", 
     },
     setUserInfo: (user) => set({userInfo: user}),
+    setUserInfo2: (ket, value) => set(state => ({userInfo: {...state.userInfo, [ket]: value,}})),
 }))
 
 export const useUserInfoList = create((set) => ({
