@@ -29,6 +29,7 @@ import Router05 from "./ch06/Router05";
 import Css from "./ch07/Css";
 import Zustand01 from "./ch08/Zustand01";
 import Zustand02 from "./ch08/Zustand02";
+import Zustand03 from "./ch08/Zustand03";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -62,8 +63,9 @@ const appObj = {
     css: <Css />,
     zustand01: <Zustand01 />,
     zustand02: <Zustand02 />,
+    zustand03: <Zustand03 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.zustand02);
+createRoot(document.getElementById('root')).render(appObj.zustand03);
 

@@ -14,3 +14,8 @@ export const useUserInfo = create((set) => ({
     },
     setUserInfo: (user) => set({userInfo: user}),
 }))
+
+export const useUserInfoList = create((set) => ({
+    userInfoList: [],
+    setUserInfoList: (user) => set((state) => ({userInfoList: [...state.userInfoList, user]})), 
+}))
