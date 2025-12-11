@@ -30,6 +30,8 @@ import Css from "./ch07/Css";
 import Zustand01 from "./ch08/Zustand01";
 import Zustand02 from "./ch08/Zustand02";
 import Zustand03 from "./ch08/Zustand03";
+import ReactQuery01 from "./ch09/ReactQuery01";
+import ReactQuery02 from "./ch09/ReactQuery02";
 
 const appObj = {
   //컴포넌트 렌더링
@@ -64,8 +66,10 @@ const appObj = {
     zustand01: <Zustand01 />,
     zustand02: <Zustand02 />,
     zustand03: <Zustand03 />,
+    reactQuery01: <ReactQuery01 />,
+    reactQuery02: <ReactQuery02 />,
 }
 
 // render()안에 있는 항목을 렌더링시킴
-createRoot(document.getElementById('root')).render(appObj.zustand03);
+createRoot(document.getElementById('root')).render(appObj.reactQuery02);
 
